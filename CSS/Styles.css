@@ -67,9 +67,10 @@ ul li h2::after {
 	content: ' ';
 	position: absolute;
 	top: 0;
-	right: -54px;
-	border-left: 54px solid rgba(0,0,0, 0.56);
-	border-top: 54px transparent solid;
+	right: -40px;
+	border-left: 40px solid rgba(0,0,0, 0.56);
+	border-top: 40px transparent solid;
+	height: 14px;	/* 54 pixels of height minus 40 pixels of triangle */
 }
 
 /* Create a white bar that stretches almost to the edges */
@@ -82,11 +83,11 @@ ul li h2::before {
 	z-index: 2;
 	bottom: 0;
 	left: 8px;
-	padding-right: 24px; /* 54 pxiels of extra triangle minus 8 pixels of padding on left minus 22 on right */
+	padding-right: 24px; /* 40 pxiels of extra triangle minus 8 pixels of padding on each side */
 }
 
 ul li article {
 	background-color: rgba(0,0,0, 0.56);
-	padding: 3px 22px 8px 8px;
-	margin-right: -54px; /* Cover the extra margin below the triangle */
+	padding: 3px 8px 8px;
+	margin-right: -40px; /* Cover the extra margin below the triangle */
 }
