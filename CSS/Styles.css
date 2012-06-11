@@ -57,6 +57,7 @@ ul li .icon {
 ul li h2 {
 	height: 48px;
 	padding: 5px;
+	background-color: #333;
 	background-color: rgba(0,0,0, 0.56);
 	line-height: 48px;
 	font-size: 30px;
@@ -71,6 +72,7 @@ ul li h2::after {
 	position: absolute;
 	top: 0;
 	right: -40px;
+	border-left: 40px solid #333;
 	border-left: 40px solid rgba(0,0,0, 0.56);
 	border-top: 40px transparent solid;
 	height: 18px;	/* 58 pixels of height minus 40 pixels of triangle */
@@ -90,7 +92,13 @@ ul li h2::before {
 }
 
 ul li article {
+	background-color: #333;
 	background-color: rgba(0,0,0, 0.56);
 	padding: 3px 8px 8px;
 	margin-right: -40px; /* Cover the extra margin below the triangle */
+}
+
+/* If we can't do :after, give up on the triangle */
+.lt-ie9 ul li article {
+	margin-right: 0;
 }
