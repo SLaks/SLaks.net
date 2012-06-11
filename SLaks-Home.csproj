@@ -42,6 +42,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
