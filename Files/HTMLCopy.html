@@ -1,0 +1,207 @@
+<html>
+
+	<head>
+		<title>HTML Copy Prevention</title>
+
+		<script src="MiniProgressBar.js"></script>
+
+		<link type="text/css" rel="Stylesheet" href="ProgressBar.css"></link>
+
+		<script language="javascript">
+			var OutputSrc;
+			var OutputDiv;
+			var Busy;
+			var Message;
+			var Progress;
+
+
+			String.prototype.startsWith = function (s, from, to) {
+				from = from || 0;
+				to = to || 9999999; // Number.MAX_VALUE seems to bug with string.slice()
+
+				s = typeof s == "string" ? [s] : s;
+
+				for (var n = 0; n < s.length; n++) {
+					e = s[n];
+
+					if (e == '' || this.slice(from, to).indexOf(e) == 0) return true;
+				}
+				return false;
+			}
+
+			function Init() {
+				OutputSrc = document.getElementById("OutputSource");
+				OutputDiv = document.getElementById("OutputPreview");
+
+				Busy = document.getElementById("Busy");
+				Message = document.getElementById("Message");
+				Busy.style.display = "none";
+				Progress = new ProgressBar(document.getElementById("BusyInner"));
+			}
+
+			function DoIt() {
+				Busy.style.display = "block";
+				OutputSrc.value = OutputDiv.innerHTML = "Working...";
+				var Text = document.getElementById("InputText").value;
+
+				var Inflate = document.getElementById("Inflate").checked;
+				var Scramble = document.getElementById("Scramble").checked;
+
+				Progress.SetMaximum(Text.length);
+				Message.innerHTML = "Creating SPANs";
+				var Output = "", InTag = false, InEntity = false, TagName = "";
+
+				for (var n = 0; n < Text.length; n++) {
+					Progress.SetValue(n);
+
+					if (Inflate && !InTag && !InEntity && Math.random() >= 0.5) {
+						for (var i = 0; i < Math.random() * 5; i++) {
+							Output +=
+	'<SPAN style="position:static;left:' + parseInt(Math.random() * 999 - 9999) + 'px;position:absolute;">' + RndChar() + "</SPAN>";
+						}
+					}
+
+					switch (Text.charAt(n)) {
+						case '&':
+							InEntity = true;
+							break;
+						case '<':
+							InTag = true;
+							TagName = "";
+							break;
+					}
+
+					if (!InTag && !InEntity && (!Scramble || Text.charAt(n) != " ")) {
+						Output += "<SPAN";
+						if (Inflate)
+							Output += ' style="position:absolute;left:' + parseInt(Math.random() * 999 - 9999) + 'px;position:static;"';
+						Output += ">" + Text.charAt(n) + "</SPAN>";
+					} else
+						Output += Text.charAt(n);
+
+					if (InTag)
+						TagName += Text.charAt(n).toUpperCase();
+
+					switch (Text.charAt(n)) {
+						case ';':
+							InEntity = false;
+							break;
+						case '>':
+							if (!TagName.startsWith("<TEXTAREA") && !TagName.startsWith("<SCRIPT") && !TagName.startsWith("<SELECT"))
+								InTag = false;
+							break;
+					}
+				}
+
+				OutputSrc.value = OutputDiv.innerHTML = Output;
+
+				if (Scramble) {
+					Message.innerHTML = "Scrambling Elements";
+					var NewOut = ScrambleRecursive(OutputDiv);
+					OutputDiv.innerHTML = "";
+					OutputDiv.appendChild(NewOut);
+
+					OutputSrc.value = OutputDiv.innerHTML;
+				}
+				Busy.style.display = "none";
+			}
+
+			function ScrambleRecursive(OldElem) {
+				if (OldElem.nodeName == "#text") return null;
+
+				OldElem.style.position = "relative";
+
+				var Elem = OldElem.cloneNode(false);
+				//var Elem = document.createElement(OldElem.tagName);
+
+				Elem.style.position = "absolute";
+				if (OldElem != OutputDiv) {
+					Elem.style.left = OldElem.offsetLeft + "px";
+					Elem.style.top = OldElem.offsetTop + "px";
+				}
+
+				if (OldElem.innerHTML == "") return null;
+
+				if (OldElem.innerHTML.indexOf("<") == -1) {
+					Elem.innerHTML = OldElem.innerHTML;
+
+					return Elem;
+				}
+
+				if (OldElem.childNodes.length > 0) {
+					for (var n = 0; n < OldElem.childNodes.length; n++) {
+						var NewChild = ScrambleRecursive(OldElem.childNodes[n]);
+						if (NewChild == null) continue;
+
+						if (Elem.childNodes.length == 0)
+							Elem.appendChild(NewChild)
+						else
+							Elem.insertBefore(NewChild, Elem.childNodes[parseInt(Math.random() * (Elem.childNodes.length - 1))]);
+					}
+				}
+
+				return Elem;
+			}
+
+			function RndChar() {
+				if (Math.random() >= 0.5)
+					return String.fromCharCode(parseInt(65 + Math.random() * 26));
+				else
+					return String.fromCharCode(parseInt(97 + Math.random() * 26));
+			}
+		</script>
+
+	</head>
+
+	<body onload="Init();">
+		<form onsubmit="setTimeout(DoIt, 1); return false;">
+			<div id="Busy" style="position: absolute; left: 0; top: 0%; width: 100%; height: 100%; background: black; color: white; opacity: 0.5;
+				filter: alpha(opacity=50); z-index: 11;">
+				<div style="position: absolute; top: 50%; left: 50%; text-align: center;" id="BusyInner">
+					<div id="Message" style="font: 16pt 'Arial';">Please wait...</div>
+				</div>
+			</div>
+			<table style="width: 100%;" border="0">
+				<tr>
+					<td colspan="6">
+						<textarea style="width: 100%; height: 300px;" id="InputText">Type or paste your HTML source here.</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<label for="OutWidth">CSS Width of output DIV (Used to ensure word-wrap with Scramble):</label>
+						<input id="OutWidth" onkeypress="OutputDiv.style.width = OutputDiv.parentNode.style.width = document.getElementById('OutWidth').value;" />
+					</td>
+					<td colspan="2">
+						<input type="checkbox" name="Type" id="Inflate" />
+						<label for="Inflate">Add&nbsp;garbage&nbsp;text</label>
+					</td>
+					<td colspan="2">
+						<input type="checkbox" name="Type" id="Scramble" /><label for="Scramble">Scramble&nbsp;text</label>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="5">
+						<hr />
+					</td>
+					<td style="text-align: right; width: 30px;">
+						<input type="submit" id="Go" value="Go" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">Generated Source:</td>
+					<td colspan="3">Preview:</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<textarea style="width: 100%; height: 300px;" id="OutputSource"></textarea>
+					</td>
+					<td colspan="3">
+						<div id="OutputPreview" style="position: absolute;"></div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+
+</html>

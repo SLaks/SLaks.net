@@ -1,0 +1,73 @@
+﻿
+/* From BlogSpot skin:
+----------------------------------------------- */
+.post-body {
+	font-size: 110%;
+	position: relative;
+}
+.post-body img, .post-body .tr-caption-container, .Profile img, .Image img, .BlogList .item-thumbnail img {
+	background: #ffffff;
+	border: 1px solid #eeeeee;
+	-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+}
+.post-body img, .post-body .tr-caption-container {
+}
+.post-body .tr-caption-container {
+	color: #222222;
+}
+.post-body .tr-caption-container img {
+	padding: 0;
+	background: transparent;
+	border: none;
+	-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+	box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+}
+/* Original:
+----------------------------------------------- */
+
+a img {
+	border: none;
+}
+p {
+	margin: 0 0 1em;
+}
+h1 {
+	font-size: 2em;
+	color: rgb(24,10,104);
+	margin: .5em 0;
+	padding-bottom: 2px;
+	border-bottom: solid 1px rgb(6,7,60);
+}
+h2 {
+	font-size: 1.4em;
+	color: rgb(24,10,104);
+	margin: .6em 0 0;
+	text-transform: capitalize;
+	font-variant: small-caps;
+}
+.widget .post-body blockquote {
+	background-color: white;
+	margin: 10px 1.5em;
+	padding: 10px 10px 1px;
+}
+.widget .post-body ol {
+	line-height: 1.4;
+	margin: 0.5em 0;
+	padding: 0 2.5em;
+}
+.widget .post-body pre {
+	background: white;
+	border: 1px solid black;
+	overflow: auto;
+	padding: 5px;
+}
+.syntaxhighlighter {
+	border: 1px solid #180A68;
+}
+.syntaxhighlighter table {
+	margin: 0px 0px 1px !important; /* Fixes vertical scrollbar in Webkit */
+}
+

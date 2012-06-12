@@ -1,0 +1,35 @@
+﻿/* Accents
+---------------------------------------------- */
+.blog-pager {
+	background: transparent none no-repeat scroll top center;
+}
+.blog-pager-older-link, .home-link, .blog-pager-newer-link {
+	background-color: #ffffff;
+	padding: 5px;
+}
+/* Mobile
+----------------------------------------------- */
+body.mobile {
+	padding: 0;
+}
+.mobile .content-outer {
+	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+	box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+	padding: 0 40px;
+}
+body.mobile .AdSense {
+	margin-left: -40px;
+}
+.mobile .date-header span {
+	padding: 0.4em 10px;
+	margin: 0 -10px;
+}
+.mobile .blog-pager {
+	background: transparent;
+}
+.mobile-link-button {
+	background-color: #0000FF;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+	color: #ffffff;
+}

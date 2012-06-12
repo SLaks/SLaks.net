@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>ValueComparer</Title>
+			<Shortcut>vc</Shortcut>
+			<Description>Code snippet for equality methods using ValueComparer</Description>
+			<Author>SLaks</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal Editable="false">
+					<ID>classname</ID>
+					<ToolTip>Class name</ToolTip>
+					<Default>ClassNamePlaceholder</Default>
+					<Function>ClassName()</Function>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[public override int GetHashCode() { return Comparer.GetHashCode(this); }
+		public int CompareTo($classname$ obj) { return Comparer.Compare(this, obj); }
+		int IComparable.CompareTo(object obj) { return CompareTo(obj as $classname$); }
+		public bool Equals($classname$ obj) { return Comparer.Equals(this, obj); }
+		public override bool Equals(object obj) { return Equals(obj as $classname$); }
+		static readonly ValueComparer<$classname$> Comparer = new ValueComparer<$classname$>(
+			o => o.$end$
+		);]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

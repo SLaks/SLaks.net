@@ -1,0 +1,69 @@
+﻿/* From BlogSpot skin:
+----------------------------------------------- */
+.post {
+	margin: 0 0 25px 0;
+}
+.comments h4 {
+	font: normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+	margin: .75em 0 0;
+}
+
+/* Original:
+----------------------------------------------- */
+h1.post-title a {
+	text-decoration: underline !important;
+}
+h1.post-title {
+	margin: 0;
+}
+h1.post-title .post-date {
+	border: none;
+	color: black;
+	display: block;
+	float: right;
+	font-size: 11pt;
+	font-weight: normal;
+	line-height: 2em;
+}
+.post-content-area {
+	border: 1px solid black;
+	border-top: none;
+	padding: 4px;
+	background-color: #CECEED;
+}
+.post-footer {
+	border-top: 1px dotted black;
+	font-size: 90%;
+	margin-top: 20px;
+	padding-top: 2px;
+	overflow: hidden;
+}
+.post-footer-right {
+	float: right;
+}
+
+#comments .comment {
+	border: 1px dotted #999999;
+	clear: both;
+	padding: 10px 10px 0.5em;
+	overflow: hidden;
+}
+#comments .comment-author {
+	padding: 0 !important;
+	font-weight: bold;
+}
+#comments .comment-body {
+	margin: 0.5em 0 0.5em !important;
+}
+#comments .comment .comment-icon {
+	float: left;
+	margin-right: 5px;
+	text-align: right;
+	width: 32px;
+}
+#comments .comment .comment-date {
+	float: right;
+}
+#comments .comment.blog-author {
+	background-color: #FFE666;
+}
