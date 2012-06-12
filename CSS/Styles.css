@@ -46,7 +46,7 @@ ul li .icon {
 	font-size: 36px;
 	line-height: 48px;
 	text-align: center;
-	margin: 4px 12px 6px 8px;
+	margin: 8px 12px 8px;
 	position: relative;
 	z-index: 1;
 }
@@ -56,11 +56,11 @@ ul li .icon {
 
 ul li h2 {
 	height: 48px;
-	padding: 5px;
+	padding: 8px;
 	background-color: #333;
 	background-color: rgba(0,0,0, 0.56);
 	line-height: 48px;
-	font-size: 30px;
+	font-size: 34px;
 	font-weight: normal;
 	position: relative;
 }
@@ -75,7 +75,7 @@ ul li h2::after {
 	border-left: 40px solid #333;
 	border-left: 40px solid rgba(0,0,0, 0.56);
 	border-top: 40px transparent solid;
-	height: 18px;	/* 58 pixels of height minus 40 pixels of triangle */
+	height: 24px;	/* 62 pixels of height minus 40 pixels of triangle */
 }
 
 /* Create a white bar that stretches almost to the edges */
