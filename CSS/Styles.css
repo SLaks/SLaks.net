@@ -17,6 +17,7 @@ html {
 
 body {
 	margin: 20px;
+	margin-right: 60px;	/* Cover the extra 40 pixels of triangle margin */
 	font-family: "Open Sans", Verdana, sans-serif;
 	line-height: 1;
 	color: white;
@@ -144,4 +145,7 @@ ul li article + a:hover {
 /* If we can't do :after, give up on the triangle and the margin below it */
 .lt-ie9 ul li article, .lt-ie9 ul li article + a {
 	margin-right: 0;
+}
+.lt-ie9 body {
+	margin-right: 20px;
 }
