@@ -15,6 +15,10 @@ p {
 	margin-bottom: .8em;
 	line-height: 1.4;
 }
+article img {
+	display: block;
+	margin: 0 auto .8em;
+}
 
 .background {
 	display: block;
@@ -95,7 +99,7 @@ ul li h2::before {
 ul li article {
 	background-color: #333;
 	background-color: rgba(0,0,0, 0.56);
-	padding: 3px 8px 8px;
+	padding: 8px;
 	margin-right: -40px; /* Cover the extra margin below the triangle */
 }
 
