@@ -48,6 +48,7 @@
     <Content Include="Images\Sources\Blog.png" />
     <Content Include="Images\Sources\GitHub.png" />
     <Content Include="Images\Sources\LinkedIn.png" />
+    <Content Include="Images\Sources\Me.png" />
     <Content Include="Images\Sources\MVP.png" />
     <Content Include="Images\Sources\MVP2.png" />
     <Content Include="Images\Sources\SO-Careers.png" />

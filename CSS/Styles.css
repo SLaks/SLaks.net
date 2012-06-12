@@ -31,6 +31,12 @@ article img {
 	display: block;
 	margin: 0 auto .8em;
 }
+p a, p a:visited {
+	color: white;
+}
+p a:hover {
+	color: #ff3;
+}
 
 .background {
 	display: block;
@@ -74,7 +80,7 @@ ul li h2 {
 	height: 48px;
 	padding: 8px;
 	background-color: #333;
-	background-color: rgba(0,0,0, 0.56);
+	background-color: rgba(0,0,0, 0.6);
 	line-height: 48px;
 	font-size: 34px;
 	font-weight: normal;
@@ -89,7 +95,7 @@ ul li h2::after {
 	top: 0;
 	right: -40px;
 	border-left: 40px solid #333;
-	border-left: 40px solid rgba(0,0,0, 0.56);
+	border-left: 40px solid rgba(0,0,0, 0.6);
 	border-top: 40px transparent solid;
 	height: 24px; /* 62 pixels of height minus 40 pixels of triangle */
 }
@@ -109,7 +115,7 @@ ul li h2::before {
 
 ul li article {
 	background-color: #333;
-	background-color: rgba(0,0,0, 0.56);
+	background-color: rgba(0,0,0, 0.6);
 	padding: 8px;
 	margin-right: -40px; /* Cover the extra margin below the triangle */
 }
