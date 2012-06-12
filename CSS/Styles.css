@@ -5,7 +5,7 @@
 }
 
 html {
-	background-color: #197fd3;  /* Old browsers */
+	background-color: #197fd3; /* Old browsers */
 	background: -moz-linear-gradient(top, #5f9fcb 0%, #7bc0e9 43%, #197fd3 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5f9fcb), color-stop(43%,#7bc0e9), color-stop(100%,#197fd3)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #5f9fcb 0%,#7bc0e9 43%,#197fd3 100%); /* Chrome10+,Safari5.1+ */
@@ -17,7 +17,7 @@ html {
 
 body {
 	margin: 20px;
-	margin-right: 60px;	/* Cover the extra 40 pixels of triangle margin */
+	margin-right: 60px; /* Cover the extra 40 pixels of triangle margin */
 	font-family: "Open Sans", Verdana, sans-serif;
 	line-height: 1;
 	color: white;
@@ -32,14 +32,16 @@ article img {
 	display: block;
 	margin: 0 auto .8em;
 }
+
 p a, p a:visited {
 	color: white;
 }
+
 p a:hover {
 	color: #ff3;
 }
 
-.background {
+body > img {
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -61,17 +63,21 @@ ul li {
 	margin-bottom: 20px;
 }
 
-ul li .icon {
+ul li > :first-child {
 	float: left;
 	width: 48px;
 	height: 48px;
-	font-size: 36px;
-	line-height: 48px;
-	text-align: center;
 	margin: 8px 12px 8px;
 	position: relative;
 	z-index: 1;
 }
+
+ul li > span:first-child {
+	font-size: 36px;
+	line-height: 48px;
+	text-align: center;
+}
+
 
 .icon + .icon {
 	display: none;
@@ -146,6 +152,7 @@ ul li article + a:hover {
 .lt-ie9 ul li article, .lt-ie9 ul li article + a {
 	margin-right: 0;
 }
+
 .lt-ie9 body {
 	margin-right: 20px;
 }
