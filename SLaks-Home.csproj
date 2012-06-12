@@ -32,20 +32,21 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <OutputPath>bin\</OutputPath>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="CSS\Styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="Images\Background.jpg" />
-    <Content Include="Images\Sources\Blog.png" />
-    <Content Include="Images\Sources\GitHub.png" />
-    <Content Include="Images\Sources\LinkedIn.png" />
-    <Content Include="Images\Sources\Me.png" />
-    <Content Include="Images\Sources\MVP.png" />
-    <Content Include="Images\Sources\MVP2.png" />
-    <Content Include="Images\Sources\SO-Careers.png" />
-    <Content Include="Images\Sources\StackOverflow.png" />
-    <Content Include="Images\Sources\Twitter.png" />
+    <Content Include="Images\Icons\Blog.png" />
+    <Content Include="Images\Icons\GitHub.png" />
+    <Content Include="Images\Icons\LinkedIn.png" />
+    <Content Include="Images\Icons\Me.png" />
+    <Content Include="Images\Icons\MVP.png" />
+    <Content Include="Images\Icons\MVP2.png" />
+    <Content Include="Images\Icons\SO-Careers.png" />
+    <Content Include="Images\Icons\StackOverflow.png" />
+    <Content Include="Images\Icons\Twitter.png" />
     <Content Include="index.html" />
   </ItemGroup>
   <ItemGroup>
