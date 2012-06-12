@@ -45,6 +45,7 @@
     <Content Include="CSS\Styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="Images\Background.jpg" />
+    <Content Include="Images\Sources\Blog.png" />
     <Content Include="Images\Sources\GitHub.png" />
     <Content Include="Images\Sources\LinkedIn.png" />
     <Content Include="Images\Sources\MVP.png" />
