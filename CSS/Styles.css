@@ -122,7 +122,7 @@ ul li article + a {
 	text-decoration: none;
 	display: block;
 	color: white !important;
-	background-color: green;
+	background-color: #060;
 	background-color: rgba(0, 128, 0, 0.5);
 }
 
