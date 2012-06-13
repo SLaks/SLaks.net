@@ -14,14 +14,39 @@ html {
 	background: linear-gradient(top, #5f9fcb 0%,#7bc0e9 43%,#197fd3 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5f9fcb', endColorstr='#197fd3',GradientType=0 ); /* IE6-9 */
 }
-
+/* Put the image on the body so that the gradient can shine through before the image loads.*/
 body {
-	margin: 20px;
-	margin-right: 60px; /* Cover the extra 40 pixels of triangle margin */
+	padding: 20px;
+	padding-right: 60px; /* Cover the extra 40 pixels of triangle margin */
 	font-family: "Open Sans", Verdana, sans-serif;
 	line-height: 1;
 	color: white;
+	background-image: url('../Images/Background.jpg');
+	background-size: 100% 100%;
+	background-attachment: fixed;
 }
+
+body > img {
+	display: none;
+}
+
+.lt-ie9 body {
+	background-image: none;
+}
+
+.lt-ie9 body > img { /* IE8 doesn't support background-size, so I stretch an <img> */
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	pointer-events: none;
+}
+
 
 p {
 	margin-bottom: .8em;
@@ -39,19 +64,6 @@ p a, p a:visited {
 
 p a:hover {
 	color: #ff3;
-}
-
-body > img {
-	display: block;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	z-index: -1;
-	pointer-events: none;
 }
 
 ul {
@@ -154,7 +166,7 @@ ul li article + a:hover {
 }
 
 .lt-ie9 body {
-	margin-right: 20px;
+	padding-right: 20px;
 }
 
 @media only screen and (max-width: 550px) {
@@ -162,11 +174,13 @@ ul li article + a:hover {
 		font-size: 25px;
 	}
 }
+
 @media only screen and (max-width: 480px) {
 	ul li h2 {
 		font-size: 22px;
 	}
 }
+
 @media only screen and (max-width: 420px) {
 	ul li h2 {
 		font-size: 18px;
