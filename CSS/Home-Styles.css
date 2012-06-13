@@ -156,3 +156,19 @@ ul li article + a:hover {
 .lt-ie9 body {
 	margin-right: 20px;
 }
+
+@media only screen and (max-width: 550px) {
+	ul li h2 {
+		font-size: 25px;
+	}
+}
+@media only screen and (max-width: 480px) {
+	ul li h2 {
+		font-size: 22px;
+	}
+}
+@media only screen and (max-width: 420px) {
+	ul li h2 {
+		font-size: 18px;
+	}
+}
