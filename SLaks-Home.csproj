@@ -50,6 +50,7 @@
     <Content Include="index.html" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GH-Pages Branch.pubxml" />
     <None Include="PublishProfiles\GH-Pages Branch.pubxml">
       <SubType>Designer</SubType>
     </None>
